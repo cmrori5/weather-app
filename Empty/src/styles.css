@@ -1,0 +1,45 @@
+h1 {
+  color: pink;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: 100px;
+  height: 28px;
+  line-height: 28px;
+  margin: 0;
+}
+img {
+  border-radius: 20px;
+  opacity: 0.8;
+  margin-right: 10px;
+}
+form {
+  color: #878787;
+  padding: 20px 1px;
+  margin-bottom: 10px;
+}
+
+li {
+  color: #878787;
+  font-size: 16px;
+  list-style: none;
+}
+ul {
+  margin: 0 0 15px;
+  padding: 0;
+}
+.weather-app {
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px;
+  max-width: 600px;
+  border-radius: 20px;
+}
+.temp {
+  font-size: 60px;
+  line-height: 1px;
+  font-weight: 400px;
+}
+.units {
+  position: relative;
+  top: -34px;
+}
