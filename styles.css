@@ -4,7 +4,7 @@ body {
 
 h1 {
   color: #878787;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 100px;
   height: 28px;
   line-height: 28px;
@@ -27,10 +27,16 @@ li {
   color: #878787;
   font-size: 16px;
   list-style: none;
+  text-transform: capitalize;
 }
 ul {
   margin: 0 0 15px;
   padding: 0;
+}
+.sunrise-sunset {
+  color: #878787;
+  font-size: 16px;
+  margin-left: 20px;
 }
 
 .weather-app-wrapper {
@@ -44,7 +50,7 @@ ul {
   max-width: 600px;
   border-radius: 20px;
 }
-.temp {
+.temperature {
   font-size: 60px;
   line-height: 1px;
   font-weight: 400px;
@@ -52,4 +58,8 @@ ul {
 .units {
   position: relative;
   top: -34px;
+}
+
+.feels {
+  font-size: 13px;
 }

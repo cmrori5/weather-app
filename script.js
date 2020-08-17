@@ -1,41 +1,26 @@
-function formatDate(date) {
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
-  let minutes = date.getMinutes();
-
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  let dayIndex = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[dayIndex];
-
-  return `${day} ${hours}:${minutes}`;
-}
-
-function search(event) {
-  event.preventDefault();
+function displayTemperature(response) {
+  console.log(response.data);
+  let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = "Paris";
-  let cityInput = document.querySelector("#city-input");
-  cityElement.innerHTML = cityInput.value;
+  let descriptionElement = document.querySelector("#description");
+  let feelsElement = document.querySelector("#feels");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  temperatureElement.innerHTML = Math.round(
+    (response.data.main.temp * 9) / 5 + 32
+  );
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  feelsElement.innerHTML = Math.round(
+    (response.data.main.feels_like * 9) / 5 + 32
+  );
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(
+    response.data.wind.speed * 0.62137119223733
+  );
 }
 
-let dateElement = document.querySelector("#date");
-let currentTime = new Date();
-let searchForm = document.querySelector("#search-form");
+let apiKey = "64123b1ab00eb8d3e78eeb4ff0897c4b";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=new york&appid=${apiKey}&units=metric`;
 
-searchForm.addEventListener("submit", search);
-
-dateElement.innerHTML = formatDate(currentTime);
+axios.get(apiUrl).then(displayTemperature);
