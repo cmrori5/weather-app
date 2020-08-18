@@ -66,5 +66,17 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function displaycelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((80 - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+search("San Francisco");
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displaycelsiusTemperature);
